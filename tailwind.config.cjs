@@ -19,6 +19,10 @@ module.exports = {
       colors: {
         current: 'currentColor',
         transparent: 'transparent',
+        primaryblue: '#004080', // primary dark blue
+        highemphasize: '#212121',
+        lowemphasize: '##7D7D7D',
+        heading: '#45464E',
         white: '#FFFFFF',
         black: {
           ...colors.black,

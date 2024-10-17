@@ -11,6 +11,7 @@ import ECommerce from './pages/Dashboard/ECommerce';
 import FormElements from './pages/Form/FormElements';
 import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
+import RoomManagement from './pages/RoomManagement';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
@@ -35,11 +36,20 @@ function App() {
     <DefaultLayout>
       <Routes>
         <Route
-          index
+          path="/dashboard"
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | Futur Connect" />
+              <PageTitle title="Dashboard | Futur Connect" />
               <ECommerce />
+            </>
+          }
+        />
+        <Route
+          path="/room-management"
+          element={
+            <>
+              <PageTitle title="Room Management | Futur Connect" />
+              <RoomManagement />
             </>
           }
         />
