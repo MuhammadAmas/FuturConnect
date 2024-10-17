@@ -32,8 +32,29 @@ function App() {
   return loading ? (
     <Loader />
   ) : (
-    <DefaultLayout>
-      <Routes>
+    <Routes>
+      {/* Authentication Routes without DefaultLayout */}
+      <Route
+        path="/auth/signin"
+        element={
+          <>
+            <PageTitle title="Signin | Futur Connect" />
+            <SignIn />
+          </>
+        }
+      />
+      <Route
+        path="/auth/signup"
+        element={
+          <>
+            <PageTitle title="Signup | Futur Connect" />
+            <SignUp />
+          </>
+        }
+      />
+
+      {/* Dashboard and Other Routes with DefaultLayout */}
+      <Route element={<DefaultLayout />}>
         <Route
           index
           element={
@@ -124,26 +145,8 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/auth/signin"
-          element={
-            <>
-              <PageTitle title="Signin | Futur Connect" />
-              <SignIn />
-            </>
-          }
-        />
-        <Route
-          path="/auth/signup"
-          element={
-            <>
-              <PageTitle title="Signup | Futur Connect" />
-              <SignUp />
-            </>
-          }
-        />
-      </Routes>
-    </DefaultLayout>
+      </Route>
+    </Routes>
   );
 }
 
