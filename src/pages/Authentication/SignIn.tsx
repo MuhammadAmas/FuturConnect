@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import signinBackground from '/signin-background.png'; // Ensure the path is correct based on your project
+import signinBackground from '/signin-background-2.png'; // Ensure the path is correct based on your project
 import companyLogo from '/logo large 1.png';
 
 const SignIn: React.FC = () => {
@@ -20,7 +20,7 @@ const SignIn: React.FC = () => {
       <img
         alt="Company Logo"
         src={companyLogo}
-        className="h-12 w-auto absolute top-0 left-0 m-4"
+        className="absolute left-0 m-4 top-0"
       />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -30,10 +30,7 @@ const SignIn: React.FC = () => {
           >
             Streamline Your Space
           </h2>
-          <p
-            style={{ color: '#212121' }}
-            className="mt-2 text-center text-sm"
-          >
+          <p style={{ color: '#212121' }} className="mt-2 text-center text-sm">
             Manage your meeting rooms with ease and efficiency.
           </p>
         </div>
@@ -45,7 +42,11 @@ const SignIn: React.FC = () => {
             <h2 className="text-center text-xl font-semibold text-gray-700">
               Sign in to your account
             </h2>
-            <form className="mt-6 space-y-6" onSubmit={handleSubmit} method="POST">
+            <form
+              className="mt-6 space-y-6"
+              onSubmit={handleSubmit}
+              method="POST"
+            >
               <div>
                 <label
                   htmlFor="email"
@@ -86,11 +87,11 @@ const SignIn: React.FC = () => {
                     className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
-                <div className="text-sm my-4" style={{ color: '#212121', float: 'right' }}>
-                  <Link
-                    to="/forgot-password"
-                    className="font-medium underline"
-                  >
+                <div
+                  className="text-sm my-4"
+                  style={{ color: '#212121', float: 'right' }}
+                >
+                  <Link to="/forgot-password" className="font-medium underline">
                     Forgot your password?
                   </Link>
                 </div>
