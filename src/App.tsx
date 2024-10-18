@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
@@ -7,7 +7,7 @@ import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
-import ECommerce from './pages/Dashboard/ECommerce';
+import Dashboard from './pages/Dashboard/Dashboard';
 import FormElements from './pages/Form/FormElements';
 import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
@@ -55,12 +55,14 @@ function App() {
       />
 
       {/* Main app routes using DefaultLayout */}
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
       <Route
         path="/dashboard"
         element={
           <DefaultLayout>
             <PageTitle title="Dashboard | Futur Connect" />
-            <ECommerce />
+            <Dashboard />
           </DefaultLayout>
         }
       />

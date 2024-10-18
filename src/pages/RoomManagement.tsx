@@ -17,8 +17,8 @@ const RoomManagement: React.FC = () => {
   ];
   return (
     <>
-      <div className="flex justify-between">
-        <h1 className="font-sans text-highemphasize text-2xl font-semibold leading-[29.26px] text-left pb-4">
+      <div className="flex justify-between pb-4">
+        <h1 className="font-sans text-highemphasize text-2xl font-semibold leading-[29.26px] text-left">
           Room Management
         </h1>
         <div className="flex justify-between gap-2">
