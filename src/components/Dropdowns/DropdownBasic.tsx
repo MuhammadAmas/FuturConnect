@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 interface DropdownBasicProps {
   buttonText: string;
   menuItems: { title: string; value: string }[];
+  avatarUrl?: string; // Optional avatar image URL
 }
 
 const DropdownBasic: React.FC<DropdownBasicProps> = ({
   buttonText,
   menuItems,
+  avatarUrl, // Optional avatar
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,9 +23,17 @@ const DropdownBasic: React.FC<DropdownBasicProps> = ({
       <button
         id="dropdownDefaultButton"
         onClick={toggleDropdown}
-        className="text-lowemphasize bg-transparent border font-medium text-sm px-5 py-2.5 text-center inline-flex items-center dark:text-white"
+        className="text-lowemphasize rounded-lg bg-transparent border font-medium text-sm px-5 py-2.5 text-center inline-flex items-center dark:text-white"
         type="button"
       >
+        {/* Conditionally render the avatar if avatarUrl is provided */}
+        {avatarUrl && (
+          <img
+            src={avatarUrl}
+            alt="Avatar"
+            className="w-6 h-6 rounded-full me-2"
+          />
+        )}
         {buttonText}
         <svg
           className="w-2.5 h-2.5 ms-3"

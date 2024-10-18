@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import Logo from '../../images/logo/logo.svg';
+import companyLogo from '/logo large 1.png';
+import DropdownBasic from '../Dropdowns/DropdownBasic';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -65,7 +67,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink to="/">
-          <img src={Logo} alt="Logo" />
+          <img alt="Company Logo" src={companyLogo} />
         </NavLink>
 
         <button
@@ -94,7 +96,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
-        <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
+        <nav className="relative h-screen py-4 px-4 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
             {/* <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
@@ -750,6 +752,22 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
             </ul>
           </div> */}
+          <div className="absolute bottom-10">
+            <DropdownBasic
+              buttonText="Ahmed"
+              menuItems={[
+                {
+                  title: 'Ahmed',
+                  value: 'ahmed',
+                },
+                {
+                  title: 'John',
+                  value: 'john',
+                },
+              ]}
+              avatarUrl="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI="
+            />
+          </div>
         </nav>
       </div>
     </aside>
