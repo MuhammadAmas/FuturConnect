@@ -9,17 +9,17 @@ import TableOne from '../components/Tables/TableOne';
 import InfoCard from '../components/Cards/InfoCard';
 import ManagementTable from '../components/ManagementTable';
 
-const RoomManagement: React.FC = () => {
+const EntityManagement: React.FC = () => {
   const infoArray = [
-    { title: 'Number Of Rooms', value: '15' },
-    { title: 'Booked Rooms', value: '05' },
-    { title: 'Vacant Rooms', value: '10' },
+    { title: 'Number Of Doctors', value: '15' },
+    { title: 'Number of Room Bookers', value: '05' },
+    { title: 'Number of Managers', value: '10' },
   ];
   return (
     <>
       <div className="flex justify-between">
         <h1 className="font-sans text-highemphasize text-2xl font-semibold leading-[29.26px] text-left pb-4">
-          Room Management
+          Entity Management
         </h1>
         <div className="flex justify-between gap-2">
           <button className="rounded-md bg-primaryblue py-1 px-6 font-medium text-white hover:shadow-1">
@@ -30,9 +30,9 @@ const RoomManagement: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <InfoCard
-          heading="Booking"
+          heading="Entity Details"
           subHeading="Information about reservations"
           infoArr={infoArray}
         >
@@ -137,4 +137,4 @@ const RoomManagement: React.FC = () => {
   );
 };
 
-export default RoomManagement;
+export default EntityManagement;

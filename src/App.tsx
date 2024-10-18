@@ -17,6 +17,7 @@ import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
 import DefaultLayout from './layout/DefaultLayout';
+import EntityManagement from './pages/EntityManagement';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -70,6 +71,15 @@ function App() {
           <DefaultLayout>
             <PageTitle title="Room Management | Futur Connect" />
             <RoomManagement />
+          </DefaultLayout>
+        }
+      />
+      <Route
+        path="/entity-management"
+        element={
+          <DefaultLayout>
+            <PageTitle title="Entity Management | Futur Connect" />
+            <EntityManagement />
           </DefaultLayout>
         }
       />
