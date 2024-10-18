@@ -4,6 +4,7 @@ import DropdownNotification from './DropdownNotification';
 import DropdownUser from './DropdownUser';
 import LogoIcon from '../../images/logo/logo-icon.svg';
 import DarkModeSwitcher from './DarkModeSwitcher';
+import DropdownBasic from '../Dropdowns/DropdownBasic';
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -56,9 +57,9 @@ const Header = (props: {
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" to="/">
+          {/* <Link className="block flex-shrink-0 lg:hidden" to="/">
             <img src={LogoIcon} alt="Logo" />
-          </Link>
+          </Link> */}
         </div>
 
         {/* <div className="hidden sm:block">
@@ -98,23 +99,42 @@ const Header = (props: {
         </div> */}
 
         <div className="flex items-center gap-3 2xsm:gap-7">
-          <ul className="flex items-center gap-2 2xsm:gap-4">
-            {/* <!-- Dark Mode Toggler --> */}
-            {/* <DarkModeSwitcher /> */}
-            {/* <!-- Dark Mode Toggler --> */}
-
-            {/* <!-- Notification Menu Area --> */}
-            {/* <DropdownNotification /> */}
-            {/* <!-- Notification Menu Area --> */}
-
-            {/* <!-- Chat Notification Area --> */}
-            {/* <DropdownMessage /> */}
-            {/* <!-- Chat Notification Area --> */}
-          </ul>
-
+          {/* <ul className="flex items-center gap-2 2xsm:gap-4"> */}
+          {/* <!-- Dark Mode Toggler --> */}
+          {/* <DarkModeSwitcher /> */}
+          {/* <!-- Dark Mode Toggler --> */}
+          {/* <!-- Notification Menu Area --> */}
+          {/* <DropdownNotification /> */}
+          {/* <!-- Notification Menu Area --> */}
+          {/* <!-- Chat Notification Area --> */}
+          {/* <DropdownMessage /> */}
+          {/* <!-- Chat Notification Area --> */}
+          {/* </ul> */}
           {/* <!-- User Area --> */}
           {/* <DropdownUser /> */}
           {/* <!-- User Area --> */}
+        </div>
+        <div className="flex gap-2 items-center">
+          <p className="text-primaryblue font-montserrat text-[14px] font-semibold leading-[17.07px]">
+            Location:
+          </p>
+          <DropdownBasic
+            buttonText="Dubai Downtown"
+            menuItems={[
+              {
+                title: 'Sydney',
+                value: 'sydney',
+              },
+              {
+                title: 'Dubai Downtown',
+                value: 'dubai',
+              },
+              {
+                title: 'Sharjah',
+                value: 'sharjah',
+              },
+            ]}
+          />
         </div>
       </div>
     </header>

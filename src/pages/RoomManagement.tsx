@@ -7,6 +7,7 @@ import MapOne from '../components/Maps/MapOne';
 import ChatCard from '../components/Chat/ChatCard';
 import TableOne from '../components/Tables/TableOne';
 import InfoCard from '../components/Cards/InfoCard';
+import ManagementTable from '../components/ManagementTable';
 
 const RoomManagement: React.FC = () => {
   const infoArray = [
@@ -29,7 +30,7 @@ const RoomManagement: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <InfoCard
           heading="Booking"
           subHeading="Information about reservations"
@@ -53,6 +54,7 @@ const RoomManagement: React.FC = () => {
             />
           </svg> */}
         </InfoCard>
+
         {/* <CardDataStats title="Total Profit" total="$45,2K" rate="4.35%" levelUp>
           <svg
             className="fill-primary dark:fill-white"
@@ -119,6 +121,7 @@ const RoomManagement: React.FC = () => {
           </svg>
         </CardDataStats> */}
       </div>
+      <ManagementTable />
 
       {/* <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
         <ChartOne />
