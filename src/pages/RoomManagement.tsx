@@ -30,7 +30,7 @@ const RoomManagement: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <InfoCard
           heading="Booking"
           subHeading="Information about reservations"

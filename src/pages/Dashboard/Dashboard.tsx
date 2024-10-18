@@ -34,26 +34,22 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className='flex gap-5'>
-        <div>
-          <div >
+      <div className="flex gap-5">
+        <div className="w-full">
+          <div>
             <InfoCard
               heading="Booking"
               subHeading="Information about reservations"
               infoArr={infoArray}
               showTable={true}
-            >
-
-            </InfoCard>
-
+            />
           </div>
 
           <div>
             <Timeline />
           </div>
         </div>
-        <div>
-
+        <div className="w-2/5">
           <RoomStatus />
         </div>
       </div>
