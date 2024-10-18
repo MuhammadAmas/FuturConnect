@@ -1,37 +1,51 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import signinBackground from '/signin-background.png'; // Ensure the path is correct based on your project
 import companyLogo from '/logo large 1.png';
 
 const SignIn: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // ! Authentication logic goes here
+    navigate('/dashboard');
+  };
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${signinBackground})` }}
     >
       <img
-        alt='Company Logo'
+        alt="Company Logo"
         src={companyLogo}
-        className="h-12 w-auto absolute top-0 left-0 m-4" />
+        className="h-12 w-auto absolute top-0 left-0 m-4"
+      />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-
-          <h2 style={{ color: '#212121' }} className="mt-4 text-center text-3xl font-extrabold leading-9 ">
+          <h2
+            style={{ color: '#212121' }}
+            className="mt-4 text-center text-3xl font-extrabold leading-9"
+          >
             Streamline Your Space
           </h2>
-          <p style={{
-            color: '#212121'
-          }} className="mt-2 text-center text-sm ">
+          <p
+            style={{ color: '#212121' }}
+            className="mt-2 text-center text-sm"
+          >
             Manage your meeting rooms with ease and efficiency.
           </p>
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div style={{
-            background: '#F5F6F7'
-          }} className=" py-8 px-6 shadow rounded-lg sm:px-10">
+          <div
+            style={{ background: '#F5F6F7' }}
+            className="py-8 px-6 shadow rounded-lg sm:px-10"
+          >
             <h2 className="text-center text-xl font-semibold text-gray-700">
               Sign in to your account
             </h2>
-            <form className="mt-6 space-y-6" action="#" method="POST">
+            <form className="mt-6 space-y-6" onSubmit={handleSubmit} method="POST">
               <div>
                 <label
                   htmlFor="email"
@@ -60,7 +74,6 @@ const SignIn: React.FC = () => {
                   >
                     Password
                   </label>
-
                 </div>
                 <div className="mt-1">
                   <input
@@ -92,8 +105,6 @@ const SignIn: React.FC = () => {
                 </button>
               </div>
             </form>
-
-
           </div>
         </div>
       </div>
