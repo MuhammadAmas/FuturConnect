@@ -1,4 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
+import CheckboxOne from '../Checkboxes/CheckboxOne';
+import LayoutType from '../LayoutType';
 
 interface Room {
   number: string;
@@ -72,25 +74,45 @@ const ManagementTable: React.FC = () => {
     <div className="p-4 bg-white rounded-lg">
       {/* Search and Filter Section */}
       <div className="flex items-center justify-between mb-4">
-        <div className="relative">
+        <div className="relative w-1/2">
+          <img
+            src="/search.png"
+            alt="Search Icon"
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500"
+          />
           <input
             type="text"
             placeholder="Search By Name"
             value={searchTerm}
             onChange={handleSearch}
-            className="border rounded-lg p-2 w-80"
+            className="border rounded-lg pl-10 pr-4 py-2 w-full text-gray-600 placeholder-gray-400 focus:outline-none focus:border-gray-500"
           />
         </div>
+
         <div className="flex items-center space-x-2">
-          <button className="border rounded-lg px-4 py-2">Filter</button>
-          <button className="border rounded-lg px-4 py-2 bg-blue-500 text-white">
-            Bulk Action
+          <button className="font-montserrat text-[12px] text-lowemphasize font-semibold flex items-center border rounded-lg px-4 py-2 bg-white border-gray-300 h-full">
+            <img src="/filter.png" alt="Filter Icon" className="w-4 h-4 mr-2" />
+            {/* <span className=" leading-[15.6px] "> */}
+            Filter
+            {/* </span> */}
           </button>
+
+          {/* <button className="border rounded-lg px-4 py-2">Filter</button> */}
+          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
+            Bulk Action
+            <img
+              src="/arrow-down.png"
+              alt="Arrow Down"
+              className="w-4 h-4 ml-2"
+            />
+          </button>
+
           <input
             type="date"
             className="border rounded-lg px-4 py-2"
             defaultValue="2024-10-18"
           />
+          <LayoutType />
         </div>
       </div>
 
@@ -100,7 +122,7 @@ const ManagementTable: React.FC = () => {
           <thead className="bg-gray-50">
             <tr>
               <th className="p-4 text-left">
-                <input type="checkbox" />
+                <CheckboxOne />
               </th>
               <th className="p-4 text-left">Room Number</th>
               <th className="p-4 text-left">Room Code</th>
@@ -115,7 +137,7 @@ const ManagementTable: React.FC = () => {
             {filteredRooms.map((room, index) => (
               <tr key={index} className="border-b">
                 <td className="p-4">
-                  <input type="checkbox" />
+                  <CheckboxOne />
                 </td>
                 <td className="p-4">{room.number}</td>
                 <td className="p-4 text-blue-500">{room.code}</td>
