@@ -72,7 +72,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             alt="Company Logo"
             src={companyLogo}
             className={`${
-              sidebarExpanded ? 'h-12 w-auto' : 'h-12 w-12'
+              sidebarExpanded ? 'h-12 w-auto' : 'hidden'
             } transition-all duration-300`}
           />
         </NavLink>
@@ -102,39 +102,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         {/* Collapse/Expand button */}
         <button
           onClick={() => setSidebarExpanded(!sidebarExpanded)}
-          className="hidden lg:block "
+          className="hidden lg:block mr-[-28px]  border-solid border-[1px] rounded-full p-1"
         >
-          {sidebarExpanded ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          )}
+          <img
+            src="/Group 328739.png"
+            className={`${!sidebarExpanded && 'rotate-180'}`}
+          />
         </button>
       </div>
 
