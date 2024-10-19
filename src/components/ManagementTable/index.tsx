@@ -114,9 +114,9 @@ const ManagementTable: React.FC<ManagementTableProps> = ({
                     key={i}
                     className={`p-4 ${
                       data[header.key].toLowerCase() === 'vacant'
-                        ? 'text-red-500 font-bold'
+                        ? 'text-[#D61C2A] font-semibold'
                         : data[header.key].toLowerCase() === 'booked'
-                        ? 'text-green-500 font-bold'
+                        ? 'text-[#199D54] font-semibold'
                         : 'text-lowemphasize'
                     }`}
                   >

@@ -18,7 +18,7 @@ const RoomManagement: React.FC = () => {
 
   const tableHeaders = [
     { label: 'Room Number', key: 'number' },
-    { label: 'Room Code', key: 'code' },
+    { label: 'Floor No.', key: 'code' },
     { label: 'Status', key: 'status' },
     { label: 'Check-In', key: 'checkIn' },
     { label: 'Check-Out', key: 'checkOut' },
