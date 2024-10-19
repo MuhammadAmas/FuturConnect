@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import signinBackground from '/signin-background-2.png'; // Ensure the path is correct based on your project
 import companyLogo from '/logo large 1.png';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'; // Import eye icons from react-icons
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,15 +77,32 @@ const SignIn: React.FC = () => {
                   >
                     Password
                   </label>
+                  {/* Eye icon to toggle password visibility next to the label */}
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="text-gray-500 cursor-pointer"
+                  >
+                    {showPassword ? (
+                      <span className="flex items-center gap-1 text-[14px]">
+                        <AiOutlineEyeInvisible />
+                        <span>Hide</span>
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-[14px]">
+                        <AiOutlineEye />
+                        <span>Unhide</span>
+                      </span>
+                    )}
+                  </span>
                 </div>
                 <div className="mt-1">
                   <input
                     id="password"
                     name="password"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     required
                     autoComplete="current-password"
-                    placeholder="Enter your password"
+                    placeholder="e.g. ••••••••••••"
                     className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                   />
                 </div>
