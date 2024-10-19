@@ -15,6 +15,66 @@ const RoomManagement: React.FC = () => {
     { title: 'Booked Rooms', value: '05' },
     { title: 'Vacant Rooms', value: '10' },
   ];
+
+  const tableHeaders = [
+    { label: 'Room Number', key: 'number' },
+    { label: 'Room Code', key: 'code' },
+    { label: 'Status', key: 'status' },
+    { label: 'Check-In', key: 'checkIn' },
+    { label: 'Check-Out', key: 'checkOut' },
+    { label: 'Media/Entity', key: 'media' },
+    { label: 'Meeting Agenda', key: 'agenda' },
+    // { label: 'Action', key: 'action' },
+  ];
+
+  const tableData = [
+    {
+      number: 'Meeting Room 1',
+      code: 'MR1',
+      status: 'Booked',
+      checkIn: '12 Aug 2022 02:00 PM',
+      checkOut: '12 Aug 2022 03:00 PM',
+      media: 'PDF',
+      agenda: 'Dashboard Project of ATE',
+    },
+    {
+      number: 'Meeting Room 2',
+      code: 'MR2',
+      status: 'Booked',
+      checkIn: '12 Aug 2022 08:00 PM',
+      checkOut: '12 Aug 2022 10:00 PM',
+      media: 'PDF',
+      agenda: 'Project Admin Panel',
+    },
+    {
+      number: 'Meeting Room 3',
+      code: 'MR3',
+      status: 'Vacant',
+      checkIn: '-',
+      checkOut: '-',
+      media: '-',
+      agenda: '-',
+    },
+    {
+      number: 'Meeting Room 4',
+      code: 'MR4',
+      status: 'Booked',
+      checkIn: '12 Aug 2022 08:00 PM',
+      checkOut: '12 Aug 2022 10:00 PM',
+      media: 'PDF',
+      agenda: 'Dashboard Project of ATE',
+    },
+    {
+      number: 'Meeting Room 5',
+      code: 'MR5',
+      status: 'Vacant',
+      checkIn: '-',
+      checkOut: '-',
+      media: '-',
+      agenda: '-',
+    },
+  ];
+
   return (
     <>
       <div className="flex justify-between pb-4">
@@ -22,10 +82,13 @@ const RoomManagement: React.FC = () => {
           Room Management
         </h1>
         <div className="flex justify-between gap-2">
-          <button className="rounded-md bg-primaryblue py-1 px-6 font-medium text-white hover:shadow-1">
+          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
+            <img src="/add.png" alt="Arrow Down" className="w-4 h-4 mr-2" />
             New Room
           </button>
-          <button className="rounded-md bg-white py-1 px-6 font-medium text-lowemphasize border hover:shadow-1">
+
+          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-white flex items-center">
+            <img src="/linear.png" alt="calender" className="w-4 h-4 mr-2" />
             Book Room
           </button>
         </div>
@@ -121,7 +184,7 @@ const RoomManagement: React.FC = () => {
           </svg>
         </CardDataStats> */}
       </div>
-      <ManagementTable />
+      <ManagementTable tableHeaders={tableHeaders} tableData={tableData} />
 
       {/* <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
         <ChartOne />

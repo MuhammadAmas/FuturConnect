@@ -2,72 +2,34 @@ import React, { useState, ChangeEvent } from 'react';
 import CheckboxOne from '../Checkboxes/CheckboxOne';
 import LayoutType from '../LayoutType';
 
-interface Room {
-  number: string;
-  code: string;
-  status: string;
-  checkIn: string;
-  checkOut: string;
-  media: string;
-  agenda: string;
+interface TableHeader {
+  label: string;
+  key: string;
 }
 
-const ManagementTable: React.FC = () => {
+interface TableData {
+  [key: string]: string;
+}
+
+interface ManagementTableProps {
+  tableHeaders: TableHeader[];
+  tableData: TableData[];
+}
+
+const ManagementTable: React.FC<ManagementTableProps> = ({
+  tableHeaders,
+  tableData,
+}) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [rooms] = useState<Room[]>([
-    {
-      number: 'Meeting Room 1',
-      code: 'MR1',
-      status: 'Booked',
-      checkIn: '12 Aug 2022 02:00 PM',
-      checkOut: '12 Aug 2022 03:00 PM',
-      media: 'PDF',
-      agenda: 'Dashboard Project of ATE',
-    },
-    {
-      number: 'Meeting Room 2',
-      code: 'MR2',
-      status: 'Booked',
-      checkIn: '12 Aug 2022 08:00 PM',
-      checkOut: '12 Aug 2022 10:00 PM',
-      media: 'PDF',
-      agenda: 'Project Admin Panel',
-    },
-    {
-      number: 'Meeting Room 3',
-      code: 'MR3',
-      status: 'Vacant',
-      checkIn: '-',
-      checkOut: '-',
-      media: '-',
-      agenda: '-',
-    },
-    {
-      number: 'Meeting Room 4',
-      code: 'MR4',
-      status: 'Booked',
-      checkIn: '12 Aug 2022 08:00 PM',
-      checkOut: '12 Aug 2022 10:00 PM',
-      media: 'PDF',
-      agenda: 'Dashboard Project of ATE',
-    },
-    {
-      number: 'Meeting Room 5',
-      code: 'MR5',
-      status: 'Vacant',
-      checkIn: '-',
-      checkOut: '-',
-      media: '-',
-      agenda: '-',
-    },
-  ]);
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredRooms = rooms.filter((room) =>
-    room.number.toLowerCase().includes(searchTerm.toLowerCase()),
+  const filteredData = tableData.filter((data) =>
+    Object.values(data).some((value) =>
+      value.toLowerCase().includes(searchTerm.toLowerCase()),
+    ),
   );
 
   return (
@@ -92,12 +54,9 @@ const ManagementTable: React.FC = () => {
         <div className="flex items-center space-x-2">
           <button className="font-montserrat text-[12px] text-lowemphasize font-semibold flex items-center border rounded-lg px-4 py-2 bg-white border-gray-300 h-full">
             <img src="/filter.png" alt="Filter Icon" className="w-4 h-4 mr-2" />
-            {/* <span className=" leading-[15.6px] "> */}
             Filter
-            {/* </span> */}
           </button>
 
-          {/* <button className="border rounded-lg px-4 py-2">Filter</button> */}
           <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
             Bulk Action
             <img
@@ -124,46 +83,63 @@ const ManagementTable: React.FC = () => {
               <th className="p-4 text-left">
                 <CheckboxOne />
               </th>
-              <th className="p-4 text-left">Room Number</th>
-              <th className="p-4 text-left">Room Code</th>
-              <th className="p-4 text-left">Status</th>
-              <th className="p-4 text-left">Check-In</th>
-              <th className="p-4 text-left">Check-Out</th>
-              <th className="p-4 text-left">Media/Entity</th>
-              <th className="p-4 text-left">Meeting Agenda</th>
+              {tableHeaders.map((header, index) => (
+                <th key={index} className="p-4 text-black text-left">
+                  {header.label}
+                  <img
+                    src="/sort.png"
+                    alt="Sort Icon"
+                    className="inline-block ml-2 w-4 h-4"
+                  />
+                </th>
+              ))}
+              <th className="p-4 text-left"></th>
             </tr>
           </thead>
           <tbody>
-            {filteredRooms.map((room, index) => (
-              <tr key={index} className="border-b">
+            {filteredData.map((data, index) => (
+              <tr
+                key={index}
+                className={`border-b ${
+                  index % 2 === 0
+                    ? 'bg-white'
+                    : 'bg-gray-50' /* Alternate row colors */
+                }`}
+              >
                 <td className="p-4">
                   <CheckboxOne />
                 </td>
-                <td className="p-4">{room.number}</td>
-                <td className="p-4 text-blue-500">{room.code}</td>
-                <td
-                  className={`p-4 ${
-                    room.status === 'Vacant' ? 'text-red-500' : 'text-green-500'
-                  }`}
-                >
-                  {room.status}
-                </td>
-                <td className="p-4">{room.checkIn}</td>
-                <td className="p-4">{room.checkOut}</td>
+                {tableHeaders.map((header, i) => (
+                  <td
+                    key={i}
+                    className={`p-4 ${
+                      data[header.key].toLowerCase() === 'vacant'
+                        ? 'text-red-500 font-bold'
+                        : data[header.key].toLowerCase() === 'booked'
+                        ? 'text-green-500 font-bold'
+                        : 'text-lowemphasize'
+                    }`}
+                  >
+                    {header.key === 'media' && data[header.key] === 'PDF' ? (
+                      <img
+                        src="/Pdf.png" // PDF icon image
+                        alt="PDF Icon"
+                        className="inline-block"
+                      />
+                    ) : (
+                      data[header.key]
+                    )}
+                  </td>
+                ))}
                 <td className="p-4">
-                  {room.media === 'PDF' ? (
-                    <svg
-                      className="w-6 h-6 text-blue-500"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H8v-2h3v2zm4.12 0H13v-2h2.88c-.17 1.02-.59 1.89-1.76 1.99v.01zM13 13H8v-2h5v2zm0-3H8V8h5v2zm5 3h-2v2h1.26c.13-.3.24-.63.33-1h1.11c.01.34.02.67.02 1H18v2h2v-1.01c0-1.66-.53-3.17-1.88-4.35.67-.22 1.38-.36 2.13-.35V12h-2v-1.01c-.03-.34-.05-.67-.05-1.01H18V10z" />
-                    </svg>
-                  ) : (
-                    '-'
-                  )}
+                  {' '}
+                  {/* Menu icon for the last column */}
+                  <img
+                    src="/menu.png" // Menu icon image
+                    alt="Menu Icon"
+                    className="inline-block w-4 h-4"
+                  />
                 </td>
-                <td className="p-4">{room.agenda}</td>
               </tr>
             ))}
           </tbody>
@@ -171,11 +147,40 @@ const ManagementTable: React.FC = () => {
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between p-4 bg-gray-50">
-        <span className="text-sm text-gray-700">1-4 of 5 items</span>
-        <div className="flex space-x-1">
-          <button className="border rounded-lg px-4 py-2">1</button>
-          <button className="border rounded-lg px-4 py-2">2</button>
+      <div className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg">
+        <div className="flex gap-8 items-center">
+          <div className="flex items-center">
+            <label htmlFor="items-per-page" className="text-gray-600 mr-2">
+              Items per page
+            </label>
+            <select
+              id="items-per-page"
+              className="border rounded-lg px-3 py-1 text-gray-600"
+            >
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+
+          <span className="text-sm text-left text-gray-700">
+            1-4 of {tableData.length} items
+          </span>
+        </div>
+
+        <div className="flex items-center">
+          <button className="border rounded-lg px-3 py-1 text-gray-600 mr-1">
+            1
+          </button>
+          <span className="text-gray-600">
+            of {Math.ceil(tableData.length / 10)} pages
+          </span>
+          <button className="border rounded-lg px-3 py-1 text-gray-600 ml-1">
+            &lt;
+          </button>
+          <button className="border rounded-lg px-3 py-1 text-gray-600 ml-1">
+            &gt;
+          </button>
         </div>
       </div>
     </div>
