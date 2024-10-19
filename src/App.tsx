@@ -37,7 +37,7 @@ function App() {
     <Routes>
       {/* Authentication Routes without DefaultLayout */}
       <Route
-        path="/auth/signin"
+        path="/signin"
         element={
           <>
             <PageTitle title="Signin | Futur Connect" />
@@ -46,7 +46,7 @@ function App() {
         }
       />
       <Route
-        path="/auth/signup"
+        path="/signup"
         element={
           <>
             <PageTitle title="Signup | Futur Connect" />
