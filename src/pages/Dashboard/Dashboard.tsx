@@ -1,15 +1,6 @@
 import React from 'react';
-import CardDataStats from '../../components/CardDataStats';
-import ChartOne from '../../components/Charts/ChartOne';
-import ChartThree from '../../components/Charts/ChartThree';
-import ChartTwo from '../../components/Charts/ChartTwo';
-import ChatCard from '../../components/Chat/ChatCard';
-import MapOne from '../../components/Maps/MapOne';
-import TableOne from '../../components/Tables/TableOne';
-import Booking from './Components/Booking';
 import InfoCard from '../../components/Cards/InfoCard';
 import Timeline from './Components/Timeline';
-import RoomManagement from '../RoomManagement';
 import RoomStatus from './Components/RoomStatus';
 
 const Dashboard: React.FC = () => {
@@ -21,14 +12,17 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <div className="flex justify-between pb-4">
-        <h1 className="font-sans text-highemphasize text-2xl font-semibold leading-[29.26px] text-left ">
+        <h1 className="font-sans text-highemphasize text-2xl font-semibold leading-[29.26px] text-left">
           Dashboard
         </h1>
         <div className="flex justify-between gap-2">
-          <button className="rounded-md bg-primaryblue py-1 px-6 font-medium text-white hover:shadow-1">
+          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
+            <img src="/add.png" alt="Arrow Down" className="w-4 h-4 mr-2" />
             New Room
           </button>
-          <button className="rounded-md bg-white py-1 px-6 font-medium text-lowemphasize border hover:shadow-1">
+
+          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-white flex items-center">
+            <img src="/linear.png" alt="calender" className="w-4 h-4 mr-2" />
             Book Room
           </button>
         </div>
