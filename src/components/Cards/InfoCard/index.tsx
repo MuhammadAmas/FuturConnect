@@ -105,19 +105,19 @@ const InfoCard: React.FC<InfoCardProps> = ({
         <table className="w-full text-left border-collapse ">
           <thead>
             <tr>
-              <th className="py-2 px-4 font-medium text-highemphasize">
+              <th className="py-1 px-4 font-medium text-highemphasize">
                 Room Number
               </th>
-              <th className="py-2 px-4 font-medium text-highemphasize">
+              <th className="py-1 px-4 font-medium text-highemphasize">
                 Room Code
               </th>
-              <th className="py-2 px-4 font-medium text-highemphasize">
+              <th className="py-1 px-4 font-medium text-highemphasize">
                 Status
               </th>
-              <th className="py-2 px-4 font-medium text-highemphasize">
+              <th className="py-1 px-4 font-medium text-highemphasize">
                 Check-In
               </th>
-              <th className="py-2 px-4 font-medium text-highemphasize">
+              <th className="py-1 px-4 font-medium text-highemphasize">
                 Check-Out
               </th>
             </tr>
@@ -125,19 +125,21 @@ const InfoCard: React.FC<InfoCardProps> = ({
           <tbody>
             {rooms.map((room, index) => (
               <tr key={index}>
-                <td className="py-2 px-4 text-lowemphasize">
+                <td className="py-1 px-4 text-lowemphasize">
                   {room.roomNumber}
                 </td>
-                <td className="py-2 px-4 text-[#004080]">{room.roomCode}</td>
+                <td className="py-1 px-4 text-[#004080]">{room.roomCode}</td>
                 <td
-                  className={`py-2 px-4 ${
-                    room.status === 'Booked' ? 'text-green-500' : 'text-red-500'
+                  className={`py-1 px-4 font-semibold ${
+                    room.status === 'Booked'
+                      ? 'text-[#199D54] '
+                      : 'text-[#D61C2A] '
                   }`}
                 >
                   {room.status}
                 </td>
-                <td className="py-2 px-4 text-lowemphasize">{room.checkIn}</td>
-                <td className="py-2 px-4 text-lowemphasize">{room.checkOut}</td>
+                <td className="py-1 px-4 text-lowemphasize">{room.checkIn}</td>
+                <td className="py-1 px-4 text-lowemphasize">{room.checkOut}</td>
               </tr>
             ))}
           </tbody>
