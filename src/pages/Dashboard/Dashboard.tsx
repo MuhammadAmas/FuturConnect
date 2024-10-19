@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InfoCard from '../../components/Cards/InfoCard';
 import Timeline from './Components/Timeline';
 import RoomStatus from './Components/RoomStatus';
+import RoomModal from '../../components/RoomModal';
 
 const Dashboard: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to toggle the modal
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const infoArray = [
     { title: 'Number Of Rooms', value: '5' },
     { title: 'Booked Rooms', value: '03' },
@@ -16,11 +24,13 @@ const Dashboard: React.FC = () => {
           Dashboard
         </h1>
         <div className="flex justify-between gap-2">
-          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
+          <button
+            onClick={toggleModal}
+            className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center"
+          >
             <img src="/add.png" alt="Arrow Down" className="w-4 h-4 mr-2" />
             New Room
           </button>
-
           <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-white flex items-center">
             <img src="/linear.png" alt="calender" className="w-4 h-4 mr-2" />
             Book Room
@@ -47,6 +57,7 @@ const Dashboard: React.FC = () => {
           <RoomStatus />
         </div>
       </div>
+      <RoomModal isOpen={isModalOpen} onClose={toggleModal} />
     </>
   );
 };
