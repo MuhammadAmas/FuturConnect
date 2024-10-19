@@ -202,8 +202,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </ul>
       </nav>
 
+      {sidebarExpanded && pathname.includes('/dashboard') && (
+        <div className="m-auto py-4">
+          <img src="/ate.png" />
+        </div>
+      )}
       {/* Footer */}
-      <div className="px-4 py-5">
+      <div className="px-4 py-5 m-auto ">
         <DropdownBasic
           buttonText="Ahmed"
           menuItems={[
