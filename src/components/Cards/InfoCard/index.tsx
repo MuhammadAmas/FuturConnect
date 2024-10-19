@@ -109,7 +109,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
                 Room Number
               </th>
               <th className="py-1 px-4 font-medium text-highemphasize">
-                Room Code
+                Floor Code
               </th>
               <th className="py-1 px-4 font-medium text-highemphasize">
                 Status

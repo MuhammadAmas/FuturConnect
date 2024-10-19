@@ -66,7 +66,7 @@ const EntityManagement: React.FC = () => {
     <>
       <div className="flex justify-between pb-4">
         <h1 className="font-sans text-highemphasize text-2xl font-semibold leading-[29.26px] text-left">
-          Room Management
+          Entity Management
         </h1>
         <div className="flex justify-between gap-2">
           <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
