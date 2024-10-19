@@ -144,12 +144,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <li>
             <NavLink
               to="/dashboard"
-              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-4 font-medium text-lowemphasize duration-300 ease-in-out ${
+              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-2 font-medium text-lowemphasize duration-300 ease-in-out ${
                 pathname.includes('/dashboard') &&
                 'bg-primaryblue rounded-lg dark:bg-meta-4 text-white'
               }`}
             >
-              <img src="/dashboard-icon.svg" />
+              <img
+                src="/dashboard-icon.svg"
+                style={{
+                  filter: `${
+                    pathname.includes('/dashboard')
+                      ? 'brightness(0) invert(1)'
+                      : ''
+                  }`,
+                }}
+              />
               {sidebarExpanded && <span>Dashboard</span>}
             </NavLink>
           </li>
@@ -158,12 +167,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <li>
             <NavLink
               to="/room-management"
-              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-4 font-medium text-lowemphasize duration-300 ease-in-out ${
+              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-2 font-medium text-lowemphasize duration-300 ease-in-out ${
                 pathname.includes('/room-management') &&
                 'bg-primaryblue rounded-lg dark:bg-meta-4 text-white'
               }`}
             >
-              <img src="/🦆 icon _two seater sofa_.png" />
+              <img
+                src="/🦆 icon _two seater sofa_.png"
+                style={{
+                  filter: `${
+                    pathname.includes('/room-management')
+                      ? 'brightness(0) invert(1)'
+                      : ''
+                  }`,
+                }}
+              />
               {sidebarExpanded && <span>Room Management</span>}
             </NavLink>
           </li>
@@ -172,12 +190,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <li>
             <NavLink
               to="/entity-management"
-              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-4 font-medium text-lowemphasize duration-300 ease-in-out ${
+              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-2 font-medium text-lowemphasize duration-300 ease-in-out ${
                 pathname.includes('/entity-management') &&
                 'bg-primaryblue rounded-lg dark:bg-meta-4 text-white'
               }`}
             >
-              <img src="/receipt-text.png" />
+              <img
+                src="/receipt-text.png"
+                style={{
+                  filter: `${
+                    pathname.includes('/entity-management')
+                      ? 'brightness(0) invert(1)'
+                      : ''
+                  }`,
+                }}
+              />
               {sidebarExpanded && <span>Entity</span>}
             </NavLink>
           </li>
@@ -186,7 +213,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <li>
             <NavLink
               to=""
-              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-4 font-medium text-lowemphasize duration-300 ease-in-out ${
+              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-2 font-medium text-lowemphasize duration-300 ease-in-out ${
                 pathname.includes('/entity-managementt') &&
                 'bg-primaryblue rounded-lg dark:bg-meta-4 text-white'
               }`}
@@ -200,7 +227,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <li>
             <NavLink
               to=""
-              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-4 font-medium text-lowemphasize duration-300 ease-in-out ${
+              className={`group relative flex items-center gap-2.5 rounded-lg py-3 px-2 font-medium text-lowemphasize duration-300 ease-in-out ${
                 pathname.includes('/entity-managementt') &&
                 'bg-primaryblue rounded-lg dark:bg-meta-4 text-white'
               }`}
@@ -218,7 +245,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </div>
       )}
       {/* Footer */}
-      <div className="px-4 py-5 m-auto ">
+      <div className="px-2 py-5 m-auto ">
         <DropdownBasic
           buttonText="Ahmed"
           menuItems={[
