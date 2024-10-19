@@ -28,7 +28,6 @@ const CheckboxOne = () => {
             ></span>
           </div>
         </div>
-        Checkbox Text
       </label>
     </div>
   );

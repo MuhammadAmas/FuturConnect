@@ -15,6 +15,53 @@ const EntityManagement: React.FC = () => {
     { title: 'Number of Room Bookers', value: '05' },
     { title: 'Number of Managers', value: '10' },
   ];
+
+  const tableHeaders = [
+    { label: 'Name', key: 'name' },
+    { label: 'Designation', key: 'designation' },
+    { label: 'Status', key: 'status' },
+    { label: 'Check-In', key: 'checkIn' },
+    { label: 'Check-Out', key: 'checkOut' },
+  ];
+
+  const tableData = [
+    {
+      name: 'John',
+      designation: 'Doctor',
+      status: 'Booked',
+      checkIn: '12 Aug 2022 02:00 PM',
+      checkOut: '12 Aug 2022 03:00 PM',
+    },
+    {
+      name: 'Jane',
+      designation: 'Engineer',
+      status: 'Booked',
+      checkIn: '12 Aug 2022 08:00 PM',
+      checkOut: '12 Aug 2022 10:00 PM',
+    },
+    {
+      name: 'Thomas',
+      designation: 'Surgeon',
+      status: 'Vacant',
+      checkIn: '-',
+      checkOut: '-',
+    },
+    {
+      name: 'Tim Cook',
+      designation: 'Doctor',
+      status: 'Booked',
+      checkIn: '12 Aug 2022 08:00 PM',
+      checkOut: '12 Aug 2022 10:00 PM',
+    },
+    {
+      name: 'Albert',
+      designation: 'Cook',
+      status: 'Vacant',
+      checkIn: '-',
+      checkOut: '-',
+    },
+  ];
+
   return (
     <>
       <div className="flex justify-between pb-4">
@@ -22,11 +69,9 @@ const EntityManagement: React.FC = () => {
           Room Management
         </h1>
         <div className="flex justify-between gap-2">
-          <button className="rounded-md bg-primaryblue py-1 px-6 font-medium text-white hover:shadow-1">
-            New Room
-          </button>
-          <button className="rounded-md bg-white py-1 px-6 font-medium text-lowemphasize border hover:shadow-1">
-            Book Room
+          <button className="font-montserrat text-[12px] font-semibold text-center border rounded-lg px-4 py-2 bg-primaryblue text-white flex items-center">
+            <img src="/add.png" alt="Arrow Down" className="w-4 h-4 mr-2" />
+            New Entity
           </button>
         </div>
       </div>
@@ -121,7 +166,7 @@ const EntityManagement: React.FC = () => {
           </svg>
         </CardDataStats> */}
       </div>
-      <ManagementTable />
+      <ManagementTable tableHeaders={tableHeaders} tableData={tableData} />
 
       {/* <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
         <ChartOne />

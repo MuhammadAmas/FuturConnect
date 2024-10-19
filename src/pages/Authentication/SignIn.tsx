@@ -37,10 +37,7 @@ const SignIn: React.FC = () => {
           </p>
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div
-            style={{ background: '#F5F6F7' }}
-            className="py-8 px-6 shadow rounded-lg sm:px-10"
-          >
+          <div className="bg-[#F5F6F7] p-10 shadow rounded-2xl sm:px-10">
             <h2 className="text-center text-xl font-semibold text-gray-700">
               Sign in to your account
             </h2>
@@ -119,7 +116,7 @@ const SignIn: React.FC = () => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-primaryblue py-2 px-4 text-sm font-medium text-white shadow-sm hover:shadow-1 focus:outline-none focus:ring-2 focus:ring-primary-dark focus:ring-offset-2"
+                  className="flex w-full justify-center rounded-full bg-primaryblue py-3 px-4 text-sm font-medium text-white shadow-sm hover:shadow-1 focus:outline-none focus:ring-2 focus:ring-primary-dark focus:ring-offset-2"
                 >
                   Sign in
                 </button>
