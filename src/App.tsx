@@ -5,19 +5,11 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
-import Calendar from './pages/Calendar';
-import Chart from './pages/Chart';
 import Dashboard from './pages/Dashboard/Dashboard';
-import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
-import Profile from './pages/Profile';
 import RoomManagement from './pages/RoomManagement';
-import Settings from './pages/Settings';
-import Tables from './pages/Tables';
-import Alerts from './pages/UiElements/Alerts';
-import Buttons from './pages/UiElements/Buttons';
-import DefaultLayout from './layout/DefaultLayout';
 import EntityManagement from './pages/EntityManagement';
+import DefaultLayout from './layout/DefaultLayout';
+import ProtectedRoute from './ProtectedRoute'; // Import the ProtectedRoute component
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -46,34 +38,53 @@ function App() {
         }
       />
 
-      {/* Main app routes using DefaultLayout */}
+      <Route
+        path="/signup"
+        element={
+          <>
+            <PageTitle title="Signup | Futur Connect" />
+            <SignUp />
+          </>
+        }
+      />
+
+      {/* Redirect to sign-in if accessing root */}
       <Route path="/" element={<Navigate to="/signin" replace />} />
 
+      {/* Protected Routes */}
       <Route
         path="/dashboard"
         element={
-          <DefaultLayout>
-            <PageTitle title="Dashboard | Futur Connect" />
-            <Dashboard />
-          </DefaultLayout>
+          <ProtectedRoute>
+            <DefaultLayout>
+              <PageTitle title="Dashboard | Futur Connect" />
+              <Dashboard />
+            </DefaultLayout>
+          </ProtectedRoute>
         }
       />
+
       <Route
         path="/room-management"
         element={
-          <DefaultLayout>
-            <PageTitle title="Room Management | Futur Connect" />
-            <RoomManagement />
-          </DefaultLayout>
+          <ProtectedRoute>
+            <DefaultLayout>
+              <PageTitle title="Room Management | Futur Connect" />
+              <RoomManagement />
+            </DefaultLayout>
+          </ProtectedRoute>
         }
       />
+
       <Route
         path="/entity-management"
         element={
-          <DefaultLayout>
-            <PageTitle title="Entity Management | Futur Connect" />
-            <EntityManagement />
-          </DefaultLayout>
+          <ProtectedRoute>
+            <DefaultLayout>
+              <PageTitle title="Entity Management | Futur Connect" />
+              <EntityManagement />
+            </DefaultLayout>
+          </ProtectedRoute>
         }
       />
     </Routes>
