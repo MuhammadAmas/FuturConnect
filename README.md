@@ -24,6 +24,8 @@
 ## Entity Management
 ![image](https://github.com/user-attachments/assets/68265ab0-bfc8-4c3c-904f-18e6176bf679)
 
+## Modals
+![image](https://github.com/user-attachments/assets/bdfae58c-fe5f-4382-a371-47bf44e1b175)
 
 
 
