@@ -144,6 +144,12 @@ const SignIn: React.FC = () => {
                 </button>
               </div>
             </form>
+            <p className="mt-6 text-center text-sm text-gray-600">
+              Don’t have an account?{' '}
+              <Link to="/signup" className="font-medium underline">
+                Sign up
+              </Link>
+            </p>
           </div>
         </div>
       </div>
